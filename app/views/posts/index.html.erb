@@ -1,0 +1,9 @@
+<h2>Here are posts</h2>
+
+<% @posts.each do |post| %>
+	<p><%= link_to @post.retailer, retailer_path %></p>
+	<p><%= @post.season %></p>
+	<p><%= @post.deadline %></p>
+<% end %>
+
+<h3><%= link_to 'New Post', new_retailer_post_path %></p>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  season_id: 
+  retailer_id: 
+  nonprofit_id: 
+  deadline: 2016-01-10 19:02:41
+
+two:
+  season_id: 
+  retailer_id: 
+  nonprofit_id: 
+  deadline: 2016-01-10 19:02:41
