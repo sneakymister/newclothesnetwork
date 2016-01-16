@@ -2,7 +2,10 @@
 
 <h3>Participating Retailers:</h3>
 <% @retailers.each do |ret| %>
-	<p><%= ret.store_name %></p>
+	<p><%= link_to ret.company_name, retailer_path(ret) %></p>
 <% end %>
 
 <h3>Participating Nonprofits:</h3>
+<% @nonprofits.each do |non| %>
+	<p><%= link_to non.company_name, nonprofit_path(non) %></p>
+<% end %>

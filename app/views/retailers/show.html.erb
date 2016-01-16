@@ -1,0 +1,10 @@
+<h2><%= @retailer.company_name %></h2>
+<% if @retailer.description? %>
+	<h3>About <%= @retailer.company_name %></h3>
+	<p><%= @retailer.description %></p>
+<% end %>
+
+<% @posts.each do |post| %>
+	<p>Clothing season: <%= post.season.name %></p>
+	<p>Pickup deadline: <%= post.deadline %></p>
+<% end %>

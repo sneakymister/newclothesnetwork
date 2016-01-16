@@ -1,0 +1,5 @@
+<h2><%= @nonprofit.company_name %></h2>
+<% if @nonprofit.description? %>
+	<h3>About <%= @nonprofit.company_name %></h3>
+	<p><%= @nonprofit.description %></p>
+<% end %>

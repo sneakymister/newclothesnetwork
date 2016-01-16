@@ -16,9 +16,9 @@ class PostsController < ApplicationController
 
 	def create
 		@retailer = current_retailer
-		@post = @retailer.posts.new(post_params)
+		@post = @retailer.posts.create(post_params)
 		if @post.save
-			redirect_to retailer_post_path
+			redirect_to retailer_path(@retailer)
 		end
 	end
 
