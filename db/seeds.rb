@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Season.create(name:"spring")
+Season.create(name:"summer")
+Season.create(name:"autumn")
+Season.create(name:"winter")

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112013218) do
+ActiveRecord::Schema.define(version: 20160116190700) do
 
   create_table "nonprofits", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20160112013218) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "org_name"
+    t.string   "company_name"
     t.integer  "zip"
   end
 
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20160112013218) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "store_name"
+    t.string   "company_name"
     t.integer  "zip"
   end
 
