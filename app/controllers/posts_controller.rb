@@ -23,12 +23,25 @@ class PostsController < ApplicationController
 	end
 
 	def edit
+		@retailer = Retailer.find(params[:retailer_id])
+		@post = @retailer.posts.find(params[:id])
 	end
 
 	def update
+		@retailer = Retailer.find(params[:retailer_id])
+		@post = @retailer.posts.find(params[:id])
+		if @post.update(post_params)
+			flash[:update] = "Post has been updated."
+			redirect_to retailer_post_path
+		end
 	end
 
 	def destroy
+		@retailer = Retailer.find(params[:retailer_id])
+		@post = @retailer.posts.find(params[:id])
+		@post.destroy
+		flash[:notice] = "The post has been deleted."
+		redirect_to retailer_path(@retailer)
 	end
 
 	private
