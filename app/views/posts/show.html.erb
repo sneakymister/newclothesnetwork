@@ -8,7 +8,7 @@
 
 <% if @post.retailer_id == current_retailer.id %>
 	<p>Mark this stock as picked up</p>
-	<p><%= link_to 'Edit post details', edit_retailer_post_path %></p>
+	<p><%= link_to 'Edit post details', edit_retailer_post_path(@retailer, @post) %></p>
 	<p><%= link_to "Delete post", retailer_post_path(@retailer, @post), method: :delete, data: { confirm: "Are you sure you want to delete this post?"} %></p>
 <% end %>
 <p><%= link_to 'Back to posts', retailer_path(@retailer) %></p>
