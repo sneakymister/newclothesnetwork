@@ -6,7 +6,6 @@
 
 <% @posts.each do |post| %>
 <div class="post">
-	<p>Created: <%= post.created_at %></p>
 	<p>Clothing season: <%= post.season.name %></p>
 	<p>Pickup deadline: <%= post.deadline %></p>
 	<p><%= link_to 'Click to view this post', retailer_post_path(@retailer, post) %></p>
