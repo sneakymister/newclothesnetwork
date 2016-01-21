@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :retailers do
-    resources :posts
+    resources :posts do
+    	put 'claim' => 'posts#claim'
+    end
   end
 
   resources :nonprofits

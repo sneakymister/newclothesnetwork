@@ -1,13 +1,13 @@
 <% if nonprofit_signed_in? %>
-	<p>Claim this stock!</p>
+	<p><%= link_to 'Claim this stock!', retailer_post_path(@retailer, @post), method: :claim, data: {confirm: "Are you sure you want to claim this stock?  You'll be responsible for picking it up before #{@post.deadline}."} %></p>
 <% end %>
 
 <p>Clothing season: <%= @post.season.name %></p>
 <p>Pickup deadline: <%= @post.deadline %></p>
 
-<% if @post.retailer_id == current_retailer.id %>
+<% if !nonprofit_signed_in? && @post.retailer_id == current_retailer.id %>
 	<p>Mark this stock as picked up</p>
 	<p><%= link_to 'Edit post details', edit_retailer_post_path(@retailer, @post) %></p>
 	<p><%= link_to "Delete post", retailer_post_path(@retailer, @post), method: :delete, data: { confirm: "Are you sure you want to delete this post?"} %></p>
 <% end %>
-<p><%= link_to 'Back to posts', retailer_path(@retailer) %></p>
+<p><%= link_to "Back to #{@retailer.company_name}'s postings", retailer_path(@retailer) %></p>

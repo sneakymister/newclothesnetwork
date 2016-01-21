@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 	def create
 		@retailer = current_retailer
 		@post = @retailer.posts.create(post_params)
+		@post.retailer_id = current_retailer_id
 		if @post.save
 			redirect_to retailer_path(@retailer)
 		end
@@ -34,6 +35,13 @@ class PostsController < ApplicationController
 			flash[:update] = "Post has been updated."
 			redirect_to retailer_post_path
 		end
+	end
+
+	def claim
+		@retailer = Retailer.find(params[:retailer_id])
+		@post = Post.find(params[:id])
+		@post.nonprofit_id = current_nonprofit.id
+		redirect_to retailer_post_path(@retailer, @post)
 	end
 
 	def destroy

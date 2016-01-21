@@ -1,11 +1,13 @@
-<h2>welcome to the new clothes network!</h2>
+<div class="retail_pane">
+	<h3>Participating Retailers:</h3>
+	<% @retailers.each do |ret| %>
+		<p><%= link_to ret.company_name, retailer_path(ret) %></p>
+	<% end %>
+</div>
 
-<h3>Participating Retailers:</h3>
-<% @retailers.each do |ret| %>
-	<p><%= link_to ret.company_name, retailer_path(ret) %></p>
-<% end %>
-
-<h3>Participating Nonprofits:</h3>
-<% @nonprofits.each do |non| %>
-	<p><%= link_to non.company_name, nonprofit_path(non) %></p>
-<% end %>
+<div class="nonprofit_pane">
+	<h3>Participating Nonprofits:</h3>
+	<% @nonprofits.each do |non| %>
+		<p><%= link_to non.company_name, nonprofit_path(non) %></p>
+	<% end %>
+</div>

@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
   belongs_to :season
   belongs_to :retailer
-  has_one :nonprofit
+  belongs_to :nonprofit
 end

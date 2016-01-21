@@ -1,3 +1,71 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+@import url(https://fonts.googleapis.com/css?family=Fugaz+One);
+
+body {
+	background:#A8DBA8;
+	color:#0B486B;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+a {
+	color:#3B8686;
+	text-decoration:none;
+}
+
+h1 a {
+	font-family: 'Fugaz One', cursive;
+	font-size:40pt;
+	color:#0B486B;
+}
+
+.header {
+	border:10px solid #CFF09E;
+	border-radius:50px;
+	text-align:center;
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.content {
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+}
+
+.retail_pane, .nonprofit_pane {
+	position:relative;
+	width:48%;
+	float:left;
+	padding:10px;
+}
+
+.nav {
+	background:#79BD9A;
+	padding:10px;
+	height:20px;
+	border-radius:20px;
+	font-size:14pt;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+
+.navlink {
+	position:relative;
+	float:left;
+	width:50%;
+	text-align:center;
+}
+
+.nav a {
+	color:#0B486B;
+}
+
+.nav a:hover {
+	color:#CFF09E;
+}
+
 .post {
 	border:1px solid black;
 }
