@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116193602) do
+ActiveRecord::Schema.define(version: 20160122004125) do
 
   create_table "nonprofits", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160116193602) do
     t.date     "deadline"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.boolean  "picked_up"
   end
 
   add_index "posts", ["nonprofit_id"], name: "index_posts_on_nonprofit_id"

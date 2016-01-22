@@ -3,3 +3,30 @@
 	<h3>About <%= @nonprofit.company_name %></h3>
 	<p><%= @nonprofit.description %></p>
 <% end %>
+
+<% if !retailer_signed_in? && nonprofit_signed_in? && @nonprofit == current_nonprofit %>
+	<div class="postrow">
+		<h3>Pending Pickups</h3>
+		<% @posts.each do |post| %>
+			<% if post.deadline >= Date.today %>
+			<div class="post">
+				<p>Clothing season: <%= post.season.name %></p>
+				<p>Pickup deadline: <%= post.deadline %></p>
+				<p><%= link_to 'Click to view this post', retailer_post_path(post.retailer_id, post) %></p>
+			</div>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="postrow">
+		<h3>Past Pickups</h3>
+		<% @posts.each do |post| %>
+			<% if post.picked_up? %>
+			<div class="post">
+				<p>Clothing season: <%= post.season.name %></p>
+				<p>Pickup deadline: <%= post.deadline %></p>
+				<p><%= link_to 'Click to view this post', retailer_post_path(post.retailer_id, post) %></p>
+			</div>
+			<% end %>
+		<% end %>
+	</div>
+<% end %>

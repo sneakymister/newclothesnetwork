@@ -6,10 +6,10 @@ Rails.application.routes.draw do
 
   resources :retailers do
     resources :posts do
+    	put 'pickup' => 'posts#pickup'
     	put 'claim' => 'posts#claim'
     end
   end
 
   resources :nonprofits
-
 end
