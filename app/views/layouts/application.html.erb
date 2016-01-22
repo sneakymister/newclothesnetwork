@@ -15,23 +15,21 @@
 
 <div class="content">
 
+<% if !retailer_signed_in? && !nonprofit_signed_in? %>
 <div class="retail_pane">
 	<div class="nav">
-		<% if !retailer_signed_in? && !nonprofit_signed_in? %>
 			<div class="navlink"><%= link_to "Retailer Sign Up", new_retailer_registration_path %></div>
 			<div class="navlink"><%= link_to "Retailer Login", new_retailer_session_path %></div>
-		<% end %>
 	</div>
 </div>
 
 <div class="nonprofit_pane">
 	<div class="nav">
-		<% if !nonprofit_signed_in? && !retailer_signed_in? %>
 			<div class="navlink"><%= link_to "Nonprofit Sign Up", new_nonprofit_registration_path %></div>
 			<div class="navlink"><%= link_to "Nonprofit Login", new_nonprofit_session_path %></div>
-		<% end %>
 	</div>
 </div>
+<% end %>
 
 <% if retailer_signed_in? || nonprofit_signed_in? %>
 <div class="logged_in_nav">

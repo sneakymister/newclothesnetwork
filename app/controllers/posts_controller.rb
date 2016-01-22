@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
 	def show
 		@retailer = Retailer.find(params[:retailer_id])
-		@post = @retailer.posts.find(params[:id])
+		@post = Post.find(params[:id])
 	end
 
 	def new
@@ -40,6 +40,7 @@ class PostsController < ApplicationController
 	def claim
 		@retailer = Retailer.find(params[:retailer_id])
 		@post = Post.find(params[:id])
+		current_nonprofit.posts << @post
 		@post.nonprofit_id = current_nonprofit.id
 		redirect_to retailer_post_path(@retailer, @post)
 	end

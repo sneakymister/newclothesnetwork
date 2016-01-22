@@ -13,9 +13,15 @@ a {
 }
 
 h1 a {
+	transition: font-size 0.5s ease;
 	font-family: 'Fugaz One', cursive;
-	font-size:40pt;
+	font-size:35pt;
 	color:#0B486B;
+	min-height:100px;
+}
+
+h1 a:hover {
+	font-size:37pt;
 }
 
 .header {
@@ -36,7 +42,7 @@ h1 a {
 
 .retail_pane, .nonprofit_pane {
 	position:relative;
-	width:48%;
+	width:46%;
 	float:left;
 	padding:10px;
 }
@@ -67,5 +73,9 @@ h1 a {
 }
 
 .post {
-	border:1px solid black;
+	background:#CFF09E;
+	position:relative;
+	float:left;
+	margin:5px;
+	padding:10px;
 }
