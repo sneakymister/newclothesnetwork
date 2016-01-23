@@ -10,23 +10,22 @@
 
 <div class="header">
 	<h1><%= link_to 'New Clothes Network', root_path %></h1>
-	<h2>Pairing Clothes Without Homes to People Without Homes</h2>
 </div>
 
 <div class="content">
 
 <% if !retailer_signed_in? && !nonprofit_signed_in? %>
-<div class="retail_pane">
+<div class="retail_nav">
 	<div class="nav">
-			<div class="navlink"><%= link_to "Retailer Sign Up", new_retailer_registration_path %></div>
-			<div class="navlink"><%= link_to "Retailer Login", new_retailer_session_path %></div>
+			<div class="navlink_lo"><%= link_to "Retailer Sign Up", new_retailer_registration_path %></div>
+			<div class="navlink_lo"><%= link_to "Retailer Login", new_retailer_session_path %></div>
 	</div>
 </div>
 
-<div class="nonprofit_pane">
+<div class="nonprofit_nav">
 	<div class="nav">
-			<div class="navlink"><%= link_to "Nonprofit Sign Up", new_nonprofit_registration_path %></div>
-			<div class="navlink"><%= link_to "Nonprofit Login", new_nonprofit_session_path %></div>
+			<div class="navlink_lo"><%= link_to "Nonprofit Sign Up", new_nonprofit_registration_path %></div>
+			<div class="navlink_lo"><%= link_to "Nonprofit Login", new_nonprofit_session_path %></div>
 	</div>
 </div>
 <% end %>
@@ -35,13 +34,15 @@
 <div class="logged_in_nav">
 	<div class="nav">
 		<% if retailer_signed_in? %>
-			<%= link_to 'New Post', new_retailer_post_path(current_retailer) %>
-			<%= link_to 'Edit Retailer Information', edit_retailer_registration_path %>
-			<%= link_to "Logout", destroy_retailer_session_path, method: :delete %>
+			<div class="navlink_li"><%= link_to 'New Post', new_retailer_post_path(current_retailer) %></div>
+			<div class="navlink_li"><%= link_to 'My Profile', retailer_path(current_retailer) %></div>
+			<div class="navlink_li"><%= link_to 'Edit Retailer Information', edit_retailer_registration_path %></div>
+			<div class="navlink_li"><%= link_to "Logout", destroy_retailer_session_path, method: :delete %></div>
 		<% end %>
 		<% if nonprofit_signed_in? %>
-			<%= link_to 'Edit Nonprofit Information', edit_nonprofit_registration_path %>
-			<%= link_to "Logout", destroy_nonprofit_session_path, method: :delete %>
+			<div class="navlink_li"><%= link_to 'My Profile', nonprofit_path(current_nonprofit) %></div>
+			<div class="navlink_li"><%= link_to 'Edit Nonprofit Information', edit_nonprofit_registration_path %></div>
+			<div class="navlink_li"><%= link_to "Logout", destroy_nonprofit_session_path, method: :delete %></div>
 		<% end %>
 	</div>
 </div>
@@ -57,5 +58,6 @@
 	<%= yield %>
 
 </div>
+<div class="footer">New Clothes Network is not a real service yet, sorry everybody.</div>
 </body>
 </html>

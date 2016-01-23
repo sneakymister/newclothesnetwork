@@ -9,10 +9,9 @@
 <% @posts.each do |post| %>
 	<% if !post.nonprofit_id? && post.deadline >= Date.today %>
 	<div class="post">
-		<p>Description: <%= post.description %></p>
-		<p>Clothing season: <%= post.season.name %></p>
-		<p>Pickup deadline: <%= post.deadline %></p>
-		<p><%= link_to 'Click to view this post', retailer_post_path(@retailer, post) %></p>
+		<p>Description: <b><%= post.description %></b></p>
+		<p>Pickup deadline: <b><%= post.deadline %></b></p>
+		<div class="button"><%= link_to 'View Details', retailer_post_path(post.retailer_id, post) %></div>
 	</div>
 	<% end %>
 <% end %>
@@ -24,10 +23,10 @@
 	<% @posts.each do |post| %>
 		<% if post.nonprofit_id? && !post.picked_up? %>
 			<div class="post">
-				<p>Description: <%= post.description %></p>
-				<p>Picking up: <%= post.nonprofit.company_name %></p>
-				<p>Pickup deadline: <%= post.deadline %></p>
-				<p><%= link_to 'Click to view this post', retailer_post_path(@retailer, post) %></p>
+				<p>Picking up: <b><%= link_to post.nonprofit.company_name, nonprofit_path(post.nonprofit) %></b></p>
+				<p>Description: <b><%= post.description %></b></p>
+				<p>Pickup deadline: <b><%= post.deadline %></b></p>
+				<div class="button"><%= link_to 'View Details', retailer_post_path(post.retailer_id, post) %></div>
 			</div>
 		<% end %>
 	<% end %>
@@ -37,9 +36,10 @@
 	<% @posts.each do |post| %>
 		<% if post.picked_up? %>
 			<div class="post">
-				<p>Description: <%= post.description %></p>
-				<p>Picked up by: <%= post.nonprofit.company_name %></p>
-				<p><%= link_to 'Click to view this post', retailer_post_path(@retailer, post) %></p>
+				<p>Picked up by: <b><%= link_to post.nonprofit.company_name, nonprofit_path(post.nonprofit) %></b></p>
+				<p>Description: <b><%= post.description %></b></p>
+				<p>Pickup deadline: <b><%= post.deadline %></b></p>
+				<div class="button"><%= link_to 'View Details', retailer_post_path(post.retailer_id, post) %></div>
 			</div>
 		<% end %>
 	<% end %>
@@ -49,10 +49,9 @@
 	<% @posts.each do |post| %>
 		<% if !post.picked_up? && post.deadline < Date.today %>
 			<div class="post">
-				<p>Description: <%= post.description %></p>
-				<p>Clothing season: <%= post.season.name %></p>
-				<p>Pickup deadline: <%= post.deadline %></p>
-				<p><%= link_to 'Click to view this post', retailer_post_path(@retailer, post) %></p>
+				<p>Description: <b><%= post.description %></b></p>
+				<p>Pickup deadline: <b><%= post.deadline %></b></p>
+				<div class="button"><%= link_to 'View Details', retailer_post_path(post.retailer_id, post) %></div>
 			</div>
 		<% end %>
 	<% end %>

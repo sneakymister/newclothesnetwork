@@ -2,88 +2,161 @@
 @import url(https://fonts.googleapis.com/css?family=Fugaz+One);
 
 body {
-	background:#E0F8E6;
-	color:#0B486B;
+	background:white;
+	color:black;
 	font-family: 'Roboto Condensed', sans-serif;
+	margin:0px;
 }
 
 a {
-	color:#3B8686;
+	color:#A4A4A4;
 	text-decoration:none;
 }
 
-h1 a {
-	transition: font-size 0.2s ease;
-	font-family: 'Fugaz One', cursive;
-	font-size:35pt;
-	color:#0B486B;
-	line-height:90%;
-}
-
-h1 a:hover {
-	font-size:37pt;
+a:hover {
+	color:black;
 }
 
 .header {
-	background:#A8DBA8;
-	border:10px solid #CFF09E;
-	border-radius:50px;
+	background:url(clothes.jpg) no-repeat top center;
+	background-size:100%;
 	text-align:center;
-	width:80%;
-	margin-left:auto;
-	margin-right:auto;
-	min-height:140px;
+	width:100%;
+	height:180px;
+}
+
+.header h1 {
+	margin:0px;
+	font-size:60pt;
+	padding-top:20px;
+	font-family: 'Fugaz One', cursive;
+}
+
+.header h1 a {
+	color:white;
 }
 
 .content {
-	width:80%;
+	background:white;
+	position:relative;
+	width:900px;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:20px;
+	min-height:400px;
 }
 
-.retail_pane, .nonprofit_pane {
+.retail_nav, .nonprofit_nav, .retail_list, .nonprofit_list {
 	position:relative;
-	width:46%;
-	float:left;
-	padding:10px;
+	width:48%;
+	display:inline-block;
+	padding:5px;
+}
+
+.retail_list, .nonprofit_list {
+	text-align:center;
 }
 
 .nav {
-	background:#79BD9A;
+	background:white;
+	border-bottom:3px solid black;
 	padding:10px;
 	height:20px;
-	border-radius:20px;
 	font-size:14pt;
 	font-weight:bold;
 	text-transform:uppercase;
 }
 
-.navlink {
-	position:relative;
-	float:left;
-	width:50%;
+.navlink_lo {
+	display:inline-block;
+	width:49%;
 	text-align:center;
 }
 
+.navlink_li {
+	display:inline-block;
+	text-align:center;
+	padding-left:10px;
+	padding-right:10px;
+}
+
 .nav a {
-	color:#0B486B;
+	color:black;
 }
 
 .nav a:hover {
-	color:#CFF09E;
+	color:#A4A4A4;
 }
 
 .postrow {
 	width:100%;
-	min-height:200px;
 }
 
 .post {
-	background:#A8DBA8;
-	position:relative;
-	float:left;
+	background:white;
+	border:1px solid black;
+	display:inline-block;
 	margin:5px;
 	padding:10px;
+	width:46%;
+}
+
+.button {
+	display:inline-block;
+	border:1px solid black;
+	padding:5px;
+	margin-bottom:5px;
+}
+
+.button a {
+	color:black;
+}
+
+.button:hover {
+	background:black;
+}
+
+.button:hover a, .button:hover input[type="submit"] {
+	color:white;
+}
+
+.form {
+	text-align:center;
+}
+
+.formlabel {
+	padding-top:15px;
+	padding-bottom:5px;
+}
+
+.formfield input, textarea {
 	width:200px;
+}
+
+.required {
+	color:red;
+}
+
+.small {
+	font-size:12px;
+}
+
+.actions {
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+input[type="submit"] {
+	background:transparent;
+	border:none;
+	font-size:14pt;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+.footer {
+	clear:both;
+	width:100%;
+	text-align:center;
+	font-size:10pt;
+	margin-top:30px;
+	margin-bottom:30px;
 }

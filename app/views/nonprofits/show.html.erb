@@ -10,9 +10,10 @@
 		<% @posts.each do |post| %>
 			<% if post.deadline >= Date.today %>
 			<div class="post">
-				<p>Clothing season: <%= post.season.name %></p>
-				<p>Pickup deadline: <%= post.deadline %></p>
-				<p><%= link_to 'Click to view this post', retailer_post_path(post.retailer_id, post) %></p>
+				<p>Retailer: <b><%= link_to post.retailer.company_name, retailer_path(post.retailer) %></b></p>
+				<p>Description: <b><%= post.description %></b></p>
+				<p>Pickup deadline: <b><%= post.deadline %></b></p>
+				<div class="button"><%= link_to 'View Details', retailer_post_path(post.retailer_id, post) %></div>
 			</div>
 			<% end %>
 		<% end %>
@@ -22,9 +23,10 @@
 		<% @posts.each do |post| %>
 			<% if post.picked_up? %>
 			<div class="post">
-				<p>Clothing season: <%= post.season.name %></p>
-				<p>Pickup deadline: <%= post.deadline %></p>
-				<p><%= link_to 'Click to view this post', retailer_post_path(post.retailer_id, post) %></p>
+				<p>Retailer: <b><%= link_to post.retailer.company_name, retailer_path(post.retailer) %></b></p>
+				<p>Description: <b><%= post.description %></b></p>
+				<p>Pickup deadline: <b><%= post.deadline %></b></p>
+				<div class="button"><%= link_to 'View Details', retailer_post_path(post.retailer_id, post) %></div>
 			</div>
 			<% end %>
 		<% end %>

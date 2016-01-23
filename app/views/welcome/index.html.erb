@@ -1,13 +1,13 @@
-<div class="retail_pane">
+<div class="retail_list">
 	<h3>Participating Retailers:</h3>
 	<% @retailers.each do |ret| %>
-		<p><%= link_to ret.company_name, retailer_path(ret) %></p>
+		<div class="button"><%= link_to ret.company_name, retailer_path(ret) %></div>
 	<% end %>
 </div>
 
-<div class="nonprofit_pane">
+<div class="nonprofit_list">
 	<h3>Participating Nonprofits:</h3>
 	<% @nonprofits.each do |non| %>
-		<p><%= link_to non.company_name, nonprofit_path(non) %></p>
+		<div class="button"><%= link_to non.company_name, nonprofit_path(non) %></div>
 	<% end %>
 </div>
