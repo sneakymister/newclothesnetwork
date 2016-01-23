@@ -2,6 +2,7 @@
 	<p><%= link_to 'Claim this stock!', retailer_post_claim_path(@retailer, @post), action: :claim, method: :put, data: {confirm: "Are you sure you want to claim this stock?  You'll be responsible for picking it up before #{@post.deadline}."} %></p>
 <% end %>
 
+<p>Description: <%= @post.description %></p>
 <p>Clothing season: <%= @post.season.name %></p>
 <p>Pickup deadline: <%= @post.deadline %></p>
 

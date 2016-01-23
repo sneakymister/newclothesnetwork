@@ -1,5 +1,6 @@
 <div class="form">
 	<%= form_for [current_retailer, @post] do |p| %>
+		<p>Description: <%= p.text_area :description %></p>
 		<p>Season: <%= collection_select(:post, :season_id, Season.all, :id, :name) %></p>
 		<p>Deadline for Pickup: <%= p.text_field :deadline %></p>
 		<p><%= p.submit %></p>

@@ -65,7 +65,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:season_id, :deadline)
+		params.require(:post).permit(:description, :season_id, :deadline)
 	end
 
 end
