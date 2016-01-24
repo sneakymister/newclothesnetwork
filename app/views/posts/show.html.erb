@@ -1,4 +1,9 @@
-<%= image_tag @post.img.url(:medium) %>
+<% if @post.img? %>
+	<%= image_tag @post.img.url(:medium) %>
+<% end %>
+
+
+
 <p>Description: <b><%= @post.description %></b></p>
 <p>Clothing season: <b><%= @post.season.name %></b></p>
 <p>Pickup deadline: <b><%= @post.deadline %></b></p>

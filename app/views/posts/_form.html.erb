@@ -1,9 +1,9 @@
 <div class="form">
-	<%= form_for [current_retailer, @post, multipart: true] do |p| %>
+	<%= form_for [current_retailer, @post] do |p| %>
 		<div class="formlabel"><%= p.label 'Description' %> <span class="required">*</span></div>
 		<div class="formfield"><%= p.text_area :description %></div>
-		<div class="formlabel"><%= f.label :img %> <span class="required">*</span></div>
-    <div class="formfield"><%= f.file_field :img %></div>
+		<div class="formlabel"><%= p.label :img %> <span class="required">*</span></div>
+    <div class="formfield"><%= p.file_field :img %></div>
 		<div class="formlabel"><%= p.label 'Season' %></div>
 		<div class="formfield"><%= collection_select(:post, :season_id, Season.all, :id, :name) %></div>
 		<div class="formlabel"><%= p.label 'Deadline for Pickup' %> <span class="required">*</span></div>

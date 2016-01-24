@@ -9,6 +9,9 @@
 <% @posts.each do |post| %>
 	<% if !post.nonprofit_id? && post.deadline >= Date.today %>
 	<div class="post">
+		<% if post.img? %>
+			<%= image_tag post.img.url(:square) %>
+		<% end %>
 		<p>Description: <b><%= post.description %></b></p>
 		<p>Pickup deadline: <b><%= post.deadline %></b></p>
 		<div class="button"><%= link_to 'View Details', retailer_post_path(post.retailer_id, post) %></div>
@@ -23,6 +26,9 @@
 	<% @posts.each do |post| %>
 		<% if post.nonprofit_id? && !post.picked_up? %>
 			<div class="post">
+				<% if post.img? %>
+					<%= image_tag post.img.url(:square) %>
+				<% end %>
 				<p>Picking up: <b><%= link_to post.nonprofit.company_name, nonprofit_path(post.nonprofit) %></b></p>
 				<p>Description: <b><%= post.description %></b></p>
 				<p>Pickup deadline: <b><%= post.deadline %></b></p>
@@ -36,6 +42,9 @@
 	<% @posts.each do |post| %>
 		<% if post.picked_up? %>
 			<div class="post">
+				<% if post.img? %>
+					<%= image_tag post.img.url(:square) %>
+				<% end %>
 				<p>Picked up by: <b><%= link_to post.nonprofit.company_name, nonprofit_path(post.nonprofit) %></b></p>
 				<p>Description: <b><%= post.description %></b></p>
 				<p>Pickup deadline: <b><%= post.deadline %></b></p>
@@ -49,6 +58,9 @@
 	<% @posts.each do |post| %>
 		<% if !post.picked_up? && post.deadline < Date.today %>
 			<div class="post">
+				<% if post.img? %>
+					<%= image_tag post.img.url(:square) %>
+				<% end %>
 				<p>Description: <b><%= post.description %></b></p>
 				<p>Pickup deadline: <b><%= post.deadline %></b></p>
 				<div class="button"><%= link_to 'View Details', retailer_post_path(post.retailer_id, post) %></div>
