@@ -18,7 +18,7 @@ a:hover {
 }
 
 .header {
-	background:url(clothes.jpg) no-repeat top center;
+	background:url(https://s3.amazonaws.com/newclothesnetwork/clothes.jpg) no-repeat top center;
 	background-size:100%;
 	text-align:center;
 	width:100%;
