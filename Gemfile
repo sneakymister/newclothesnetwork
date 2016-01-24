@@ -32,6 +32,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'devise'
+gem 'paperclip'
+gem 'aws-sdk'
 
 group :production do
 	gem 'pg' ##using postgres for production

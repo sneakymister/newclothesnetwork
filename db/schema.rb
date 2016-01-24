@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123022828) do
+ActiveRecord::Schema.define(version: 20160124014118) do
 
   create_table "nonprofits", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -39,10 +39,14 @@ ActiveRecord::Schema.define(version: 20160123022828) do
     t.integer  "retailer_id"
     t.integer  "nonprofit_id"
     t.date     "deadline"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.boolean  "picked_up"
     t.string   "description"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
   end
 
   add_index "posts", ["nonprofit_id"], name: "index_posts_on_nonprofit_id"
