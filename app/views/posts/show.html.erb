@@ -1,28 +1,29 @@
 <% if @post.img? %>
-	<%= image_tag @post.img.url(:medium) %>
+	<div class="detailimg"><%= image_tag @post.img.url(:medium) %></div>
 <% end %>
 
 
+<div class="postdetails">
+	<p>Description: <b><%= @post.description %></b></p>
+	<p>Clothing season: <b><%= @post.season.name %></b></p>
+	<p>Pickup deadline: <b><%= @post.deadline %></b></p>
 
-<p>Description: <b><%= @post.description %></b></p>
-<p>Clothing season: <b><%= @post.season.name %></b></p>
-<p>Pickup deadline: <b><%= @post.deadline %></b></p>
+	<% if nonprofit_signed_in? && !@post.nonprofit_id? %>
+		<div class="button"><%= link_to 'Claim this stock!', retailer_post_claim_path(@retailer, @post), action: :claim, method: :put, data: {confirm: "Are you sure you want to claim this stock?  You'll be responsible for picking it up before #{@post.deadline}."} %></div>
+	<% end %>
 
-<% if nonprofit_signed_in? && !@post.nonprofit_id? %>
-	<div class="button"><%= link_to 'Claim this stock!', retailer_post_claim_path(@retailer, @post), action: :claim, method: :put, data: {confirm: "Are you sure you want to claim this stock?  You'll be responsible for picking it up before #{@post.deadline}."} %></div>
-<% end %>
-
-<% if !nonprofit_signed_in? && retailer_signed_in? && @post.retailer_id == current_retailer.id %>
-	<% if @post.nonprofit_id? && !@post.picked_up? %>
-		<p>Waiting for pickup by: <b><%= link_to @post.nonprofit.company_name, nonprofit_path(@post.nonprofit) %></b></p>
-		<div class="button"><%= link_to 'Mark this stock as picked up', retailer_post_pickup_path(@retailer, @post), action: :pickup, method: :put %></div>
+	<% if !nonprofit_signed_in? && retailer_signed_in? && @post.retailer_id == current_retailer.id %>
+		<% if @post.nonprofit_id? && !@post.picked_up? %>
+			<p>Waiting for pickup by: <b><%= link_to @post.nonprofit.company_name, nonprofit_path(@post.nonprofit) %></b></p>
+			<div class="button"><%= link_to 'Mark this stock as picked up', retailer_post_pickup_path(@retailer, @post), action: :pickup, method: :put %></div>
+		<% end %>
+		<% if @post.picked_up? %>
+			<p>Picked up by: <b><%= link_to @post.nonprofit.company_name, nonprofit_path(@post.nonprofit) %></b></p>
+		<% end %>
+		<% if !@post.picked_up? %>
+			<div class="button"><%= link_to 'Edit post details', edit_retailer_post_path(@retailer, @post) %></div>
+			<div class="button"><%= link_to "Delete post", retailer_post_path(@retailer, @post), method: :delete, data: { confirm: "Are you sure you want to delete this post?"} %></div>
+		<% end %>
 	<% end %>
-	<% if @post.picked_up? %>
-		<p>Picked up by: <b><%= link_to @post.nonprofit.company_name, nonprofit_path(@post.nonprofit) %></b></p>
-	<% end %>
-	<% if !@post.picked_up? %>
-		<div class="button"><%= link_to 'Edit post details', edit_retailer_post_path(@retailer, @post) %></div>
-		<div class="button"><%= link_to "Delete post", retailer_post_path(@retailer, @post), method: :delete, data: { confirm: "Are you sure you want to delete this post?"} %></div>
-	<% end %>
-<% end %>
-<div class="button"><%= link_to "Back to #{@retailer.company_name}'s postings", retailer_path(@retailer) %></div>
+	<div class="button"><%= link_to "Back to #{@retailer.company_name}'s postings", retailer_path(@retailer) %></div>
+</div>

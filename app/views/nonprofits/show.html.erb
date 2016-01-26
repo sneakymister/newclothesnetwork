@@ -11,7 +11,7 @@
 			<% if post.deadline >= Date.today %>
 			<div class="post">
 				<% if post.img? %>
-					<%= image_tag post.img.url(:square) %>
+					<div class="img"><%= image_tag post.img.url(:square) %></div>
 				<% end %>
 				<p>Retailer: <b><%= link_to post.retailer.company_name, retailer_path(post.retailer) %></b></p>
 				<p>Description: <b><%= post.description %></b></p>
@@ -27,7 +27,7 @@
 			<% if post.picked_up? %>
 			<div class="post">
 				<% if post.img? %>
-					<%= image_tag post.img.url(:square) %>
+					<div class="img"><%= image_tag post.img.url(:square) %></div>
 				<% end %>
 				<p>Retailer: <b><%= link_to post.retailer.company_name, retailer_path(post.retailer) %></b></p>
 				<p>Description: <b><%= post.description %></b></p>

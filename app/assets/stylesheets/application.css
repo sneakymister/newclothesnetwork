@@ -97,7 +97,21 @@ a:hover {
 	display:inline-block;
 	margin:5px;
 	padding:10px;
-	width:46%;
+	width:200px;
+}
+
+.detailimg {
+	display:inline-block;
+	float:left;
+	margin-top:10px;
+	width:300px;
+	height:300px;
+}
+
+.postdetails {
+	display:inline-block;
+	width:500px;
+	margin-left:10px;
 }
 
 .button {
